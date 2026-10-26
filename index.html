@@ -129,14 +129,33 @@ h1 em,h2 em{font-family:var(--serif);font-weight:400;letter-spacing:-.07em}
 .podcast-copy p{max-width:450px;color:#c6d0c7;line-height:1.8;font-size:.95rem;margin:24px 0}
 .coming-soon{display:inline-flex;align-items:center;gap:9px;border:1px solid #ffffff55;border-radius:999px;padding:9px 12px;font-size:.67rem;letter-spacing:.1em;text-transform:uppercase}
 .coming-soon:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold)}
-.contact{background:#b85b3d;color:#fff;text-align:center}
+.contact{background:#b85b3d;color:#fff}
 .contact .section-kicker{color:#fff}
-.contact .section-heading{font-size:clamp(3.3rem,8vw,7.7rem);line-height:.9}
+.contact .section-heading{font-size:clamp(3rem,6vw,5.8rem);line-height:.95}
 .contact .section-heading em{color:#fff}
-.contact p{max-width:460px;margin:25px auto 28px;color:#fff;line-height:1.75;font-size:.94rem}
-.contact-actions{display:flex;justify-content:center;align-items:center;gap:23px;flex-wrap:wrap}
-.contact .button{background:var(--green-dark)}
-.contact .text-link{border-color:#ffffff8a}
+.contact .contact-layout{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(36px,7vw,100px);align-items:center}
+.contact-intro p{max-width:420px;margin:25px 0 0;color:#fff;line-height:1.75;font-size:.94rem}
+.contact-form{padding:clamp(24px,4vw,42px);border-radius:8px;background:var(--paper);color:var(--ink);text-align:left;box-shadow:0 24px 65px #321a1438}
+.contact-form h3{margin:0 0 7px;font-family:var(--serif);font-size:1.65rem;font-weight:500;letter-spacing:-.04em}
+.form-intro{margin:0 0 24px;color:var(--muted);font-size:.82rem;line-height:1.6}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px 14px}
+.form-field{min-width:0;display:flex;flex-direction:column;gap:7px}
+.form-field.full{grid-column:1/-1}
+.form-field label,.form-field legend{font-size:.72rem;font-weight:750;color:var(--green-dark)}
+.form-field input,.form-field select,.form-field textarea{width:100%;min-height:45px;border:1px solid #244c3b3b;border-radius:4px;background:#fffdf8;color:var(--ink);padding:11px 12px;font:inherit;font-size:.85rem}
+.form-field textarea{min-height:100px;resize:vertical;line-height:1.55}
+.form-field input:focus-visible,.form-field select:focus-visible,.form-field textarea:focus-visible,.interest-list input:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.form-field input:disabled{background:#e9e5d9;color:var(--muted);cursor:not-allowed}
+.field-hint{font-size:.7rem;line-height:1.45;color:var(--muted)}
+.date-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.date-flexible{display:flex;align-items:center;gap:9px;margin-top:10px;color:var(--muted);font-size:.75rem;line-height:1.4}
+.date-flexible input,.interest-list input{width:16px;height:16px;min-height:0;accent-color:var(--green);flex:none}
+.interest-list{display:flex;flex-wrap:wrap;gap:9px}
+.interest-option{display:inline-flex;align-items:center;gap:7px;padding:8px 10px;border:1px solid #244c3b35;border-radius:999px;background:#fffdf8;color:var(--ink);font-size:.73rem;cursor:pointer}
+.form-submit{margin-top:22px;width:100%;min-height:48px;background:var(--green)}
+.form-submit:hover{background:var(--green-dark)}
+.form-privacy{margin:13px 0 0;color:var(--muted);font-size:.7rem;line-height:1.55}
+.form-status{min-height:1.4em;margin:10px 0 0;color:var(--green-dark);font-size:.78rem;line-height:1.5}
 footer{background:var(--paper);padding:28px clamp(20px,5vw,76px);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px}
 .footer-brand{font-family:var(--serif);font-size:1.35rem;letter-spacing:-.06em}
 .footer-brand small{display:block;font-family:var(--sans);font-size:.56rem;letter-spacing:.15em;text-transform:uppercase;margin-top:3px}
@@ -171,7 +190,7 @@ footer{background:var(--paper);padding:28px clamp(20px,5vw,76px);display:grid;gr
  .pass-top{padding:18px}.pass-main{padding:20px 18px 16px}.pass-foot{padding:15px 18px 19px}.pass-destination strong{font-size:2.1rem}
  .services-grid{grid-template-columns:1fr}.service-card,.service-card:nth-child(odd),.service-card:nth-child(even){border-right:0;padding:25px 0;min-height:190px}
  .service-card h3{margin-top:25px}.step{padding:25px 0}
- .contact-actions{flex-direction:column}.footer-right{font-size:.62rem}
+ .contact-layout{grid-template-columns:1fr!important;gap:35px!important}.contact-form{width:100%}.footer-right{font-size:.62rem}
 }
 @media(prefers-reduced-motion:reduce){
  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
@@ -185,7 +204,7 @@ footer{background:var(--paper);padding:28px clamp(20px,5vw,76px);display:grid;gr
   <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mainNavigation">Menu</button>
   <nav class="nav-links" id="mainNavigation" aria-label="Main navigation">
     <a href="#services">Services</a><a href="#how-it-works">How it works</a><a href="#contact">Contact</a>
-    <a class="nav-cta" href="https://wa.me/" target="_blank" rel="noopener"><svg class="cta-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.5 11.5a8.9 8.9 0 0 1-13.1 7.8l-3.9 1 1.1-3.8a8.9 8.9 0 1 1 15.9-5Z"/><path d="M8.3 7.7c.2-.5.5-.5.8-.5h.6c.2 0 .4.1.5.4l.8 1.9c.1.3.1.5-.1.7l-.6.7c-.2.2-.2.4-.1.6.5.9 1.2 1.6 2.1 2.1.2.1.4.1.6-.1l.8-.9c.2-.2.4-.2.7-.1l1.8.9c.3.1.4.3.4.5 0 .3-.2 1.4-.9 1.8-.6.4-1.3.6-2.1.4-1.1-.3-2.4-.9-3.8-2.2-1.2-1.1-2-2.5-2.2-3.5-.2-.9.1-1.8.7-2.7Z"/></svg>WhatsApp us <span>↗</span></a>
+    <a class="nav-cta" href="#contact">Plan your trip <span>↓</span></a>
   </nav>
 </header>
 
@@ -197,7 +216,7 @@ footer{background:var(--paper);padding:28px clamp(20px,5vw,76px);display:grid;gr
       <div class="eyebrow reveal visible">Kenya travel logistics <span class="dot"></span></div>
       <h1><span class="word"><span>You bring</span></span><br><span class="word"><span>the dates.</span></span><br><span class="word"><span><em>We handle Kenya.</em></span></span></h1>
       <p class="hero-copy reveal visible" data-delay="2">Transport, stays, park permits, and a full day-by-day plan — arranged by someone who's actually driven these roads. One message on WhatsApp is where it starts.</p>
-      <div class="hero-actions reveal visible" data-delay="3"><a class="button" href="https://wa.me/" target="_blank" rel="noopener"><svg class="cta-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.5 11.5a8.9 8.9 0 0 1-13.1 7.8l-3.9 1 1.1-3.8a8.9 8.9 0 1 1 15.9-5Z"/><path d="M8.3 7.7c.2-.5.5-.5.8-.5h.6c.2 0 .4.1.5.4l.8 1.9c.1.3.1.5-.1.7l-.6.7c-.2.2-.2.4-.1.6.5.9 1.2 1.6 2.1 2.1.2.1.4.1.6-.1l.8-.9c.2-.2.4-.2.7-.1l1.8.9c.3.1.4.3.4.5 0 .3-.2 1.4-.9 1.8-.6.4-1.3.6-2.1.4-1.1-.3-2.4-.9-3.8-2.2-1.2-1.1-2-2.5-2.2-3.5-.2-.9.1-1.8.7-2.7Z"/></svg>Start on WhatsApp <span>↗</span></a><a class="text-link" href="#services">See what we handle <span>↓</span></a></div>
+      <div class="hero-actions reveal visible" data-delay="3"><a class="button" href="#contact">Plan your trip <span>↓</span></a><a class="text-link" href="#services">See what we handle <span>↓</span></a></div>
     </div>
     <div class="pass-wrap reveal" data-delay="2">
       <article class="boarding-pass" aria-label="The Gathering travel boarding pass concept">
@@ -259,13 +278,74 @@ footer{background:var(--paper);padding:28px clamp(20px,5vw,76px);display:grid;gr
 </section>
 
 <section class="section contact" id="contact">
-  <div class="inner"><div class="section-kicker reveal">Your Kenya story starts here</div><h2 class="section-heading reveal" data-delay="1">Ready when<br><em>you are.</em></h2><p class="reveal" data-delay="2">Send your travel dates on WhatsApp and you'll hear back directly — no forms, no hold music.</p><div class="contact-actions reveal" data-delay="3"><a class="button" href="https://wa.me/" target="_blank" rel="noopener"><svg class="cta-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.5 11.5a8.9 8.9 0 0 1-13.1 7.8l-3.9 1 1.1-3.8a8.9 8.9 0 1 1 15.9-5Z"/><path d="M8.3 7.7c.2-.5.5-.5.8-.5h.6c.2 0 .4.1.5.4l.8 1.9c.1.3.1.5-.1.7l-.6.7c-.2.2-.2.4-.1.6.5.9 1.2 1.6 2.1 2.1.2.1.4.1.6-.1l.8-.9c.2-.2.4-.2.7-.1l1.8.9c.3.1.4.3.4.5 0 .3-.2 1.4-.9 1.8-.6.4-1.3.6-2.1.4-1.1-.3-2.4-.9-3.8-2.2-1.2-1.1-2-2.5-2.2-3.5-.2-.9.1-1.8.7-2.7Z"/></svg>Message on WhatsApp <span>↗</span></a><a class="text-link" href="mailto:hello@example.com"><svg class="cta-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="17" height="14" rx="2"/><path d="m4.5 7 7.5 6 7.5-6"/></svg>Email instead <span>↗</span></a></div><p class="reveal" data-delay="3" style="font-size:.73rem;margin-top:32px">Based in Kenya · Planning trips for travelers from anywhere</p></div>
+  <div class="inner contact-layout">
+    <div class="contact-intro">
+      <div class="section-kicker reveal">Your Kenya story starts here</div>
+      <h2 class="section-heading reveal" data-delay="1">Ready when<br><em>you are.</em></h2>
+      <p class="reveal" data-delay="2">Tell us a little about your trip. We'll pass your details to our team in WhatsApp, where a real person can prepare a tailored quotation with you.</p>
+    </div>
+    <form class="contact-form reveal" id="tripEnquiryForm" data-delay="2">
+      <h3>Plan your Kenya trip</h3>
+      <p class="form-intro">Share what you know so far. You can leave optional details blank.</p>
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="travelerName">Your name <span aria-hidden="true">*</span></label>
+          <input id="travelerName" name="name" type="text" autocomplete="name" maxlength="100" required>
+        </div>
+        <div class="form-field">
+          <label for="travelerEmail">Email <span class="field-hint">(optional)</span></label>
+          <input id="travelerEmail" name="email" type="email" autocomplete="email" maxlength="160">
+        </div>
+        <fieldset class="form-field full" style="border:0;padding:0;margin:0">
+          <legend>When are you hoping to travel? <span aria-hidden="true">*</span></legend>
+          <div class="date-fields">
+            <div class="form-field"><label for="travelStart">Arrival</label><input id="travelStart" name="startDate" type="date" required></div>
+            <div class="form-field"><label for="travelEnd">Departure</label><input id="travelEnd" name="endDate" type="date" required></div>
+          </div>
+          <label class="date-flexible" for="datesFlexible"><input id="datesFlexible" name="flexibleDates" type="checkbox"> My dates are flexible / not decided yet</label>
+        </fieldset>
+        <div class="form-field">
+          <label for="groupSize">Number of travellers <span aria-hidden="true">*</span></label>
+          <select id="groupSize" name="groupSize" required>
+            <option value="" selected disabled>Select group size</option>
+            <option>1 traveller</option><option>2 travellers</option><option>3–4 travellers</option><option>5–7 travellers</option><option>8 or more travellers</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="stayStyle">Accommodation preference</label>
+          <select id="stayStyle" name="stayStyle">
+            <option value="Not sure yet" selected>Not sure yet</option><option>Comfortable / mid-range</option><option>Upscale / luxury</option><option>Simple / budget-friendly</option><option>A mix of styles</option>
+          </select>
+        </div>
+        <fieldset class="form-field full" style="border:0;padding:0;margin:0">
+          <legend>What would you like to experience? <span class="field-hint">(optional)</span></legend>
+          <div class="interest-list">
+            <label class="interest-option"><input type="checkbox" name="interests" value="Wildlife & safari"> Wildlife &amp; safari</label>
+            <label class="interest-option"><input type="checkbox" name="interests" value="Coast & beaches"> Coast &amp; beaches</label>
+            <label class="interest-option"><input type="checkbox" name="interests" value="Culture & local life"> Culture &amp; local life</label>
+            <label class="interest-option"><input type="checkbox" name="interests" value="Hiking & adventure"> Hiking &amp; adventure</label>
+          </div>
+        </fieldset>
+        <div class="form-field full">
+          <label for="tripBudget">Approximate budget range per person <span class="field-hint">(optional)</span></label>
+          <input id="tripBudget" name="budget" type="text" maxlength="100" placeholder="Range and currency, if known">
+        </div>
+        <div class="form-field full">
+          <label for="tripNotes">Anything else we should know? <span class="field-hint">(optional)</span></label>
+          <textarea id="tripNotes" name="notes" maxlength="600" placeholder="Places you'd love to see, special requests, or questions…"></textarea>
+        </div>
+      </div>
+      <button class="button form-submit" type="submit"><svg class="cta-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.5 11.5a8.9 8.9 0 0 1-13.1 7.8l-3.9 1 1.1-3.8a8.9 8.9 0 1 1 15.9-5Z"/><path d="M8.3 7.7c.2-.5.5-.5.8-.5h.6c.2 0 .4.1.5.4l.8 1.9c.1.3.1.5-.1.7l-.6.7c-.2.2-.2.4-.1.6.5.9 1.2 1.6 2.1 2.1.2.1.4.1.6-.1l.8-.9c.2-.2.4-.2.7-.1l1.8.9c.3.1.4.3.4.5 0 .3-.2 1.4-.9 1.8-.6.4-1.3.6-2.1.4-1.1-.3-2.4-.9-3.8-2.2-1.2-1.1-2-2.5-2.2-3.5-.2-.9.1-1.8.7-2.7Z"/></svg>Continue in WhatsApp <span>↗</span></button>
+      <p class="form-privacy">Your details are not saved or sent to this website. WhatsApp opens with a message draft for our team; review it and tap Send. Your quotation will be prepared in that conversation.</p>
+      <p class="form-status" id="formStatus" aria-live="polite" role="status"></p>
+    </form>
+  </div>
 </section>
 </main>
 
 <footer>
   <a class="footer-brand" href="#top">The Gathering<small>Your peace, our joy</small></a>
-  <nav class="footer-links" aria-label="Footer navigation"><a href="#services">Services</a><a href="#how-it-works">How it works</a><a href="#contact">Contact</a><a href="https://wa.me/" target="_blank" rel="noopener"><svg class="cta-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.5 11.5a8.9 8.9 0 0 1-13.1 7.8l-3.9 1 1.1-3.8a8.9 8.9 0 1 1 15.9-5Z"/><path d="M8.3 7.7c.2-.5.5-.5.8-.5h.6c.2 0 .4.1.5.4l.8 1.9c.1.3.1.5-.1.7l-.6.7c-.2.2-.2.4-.1.6.5.9 1.2 1.6 2.1 2.1.2.1.4.1.6-.1l.8-.9c.2-.2.4-.2.7-.1l1.8.9c.3.1.4.3.4.5 0 .3-.2 1.4-.9 1.8-.6.4-1.3.6-2.1.4-1.1-.3-2.4-.9-3.8-2.2-1.2-1.1-2-2.5-2.2-3.5-.2-.9.1-1.8.7-2.7Z"/></svg>WhatsApp</a></nav>
+  <nav class="footer-links" aria-label="Footer navigation"><a href="#services">Services</a><a href="#how-it-works">How it works</a><a href="#contact">Contact</a><a href="#contact">Plan your trip</a></nav>
   <div class="footer-right">
     <nav class="social-links" aria-label="Social media">
       <a class="social-link" href="#" data-social="instagram" aria-label="Instagram — profile link to be configured" aria-disabled="true" title="Configure the official Instagram profile URL"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.7" cy="6.6" r=".8" fill="currentColor" stroke="none"/></svg></a>
@@ -279,6 +359,67 @@ footer{background:var(--paper);padding:28px clamp(20px,5vw,76px);display:grid;gr
 <script>
 (() => {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // The site gathers trip details locally, then hands them to the recipient in WhatsApp.
+  const enquiryForm = document.querySelector('#tripEnquiryForm');
+  const formStatus = document.querySelector('#formStatus');
+  const flexibleDates = document.querySelector('#datesFlexible');
+  const startDate = document.querySelector('#travelStart');
+  const endDate = document.querySelector('#travelEnd');
+  if (enquiryForm && formStatus && flexibleDates && startDate && endDate) {
+    const whatsappNumber = '254791591040';
+    const today = new Date();
+    today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
+    startDate.min = today.toISOString().slice(0, 10);
+    endDate.min = startDate.min;
+
+    flexibleDates.addEventListener('change', () => {
+      const flexible = flexibleDates.checked;
+      [startDate, endDate].forEach(input => {
+        input.disabled = flexible;
+        input.required = !flexible;
+        if (flexible) input.value = '';
+      });
+      formStatus.textContent = flexible ? 'No problem — we will note that your dates are flexible.' : '';
+    });
+
+    startDate.addEventListener('change', () => {
+      endDate.min = startDate.value || startDate.min;
+      if (endDate.value && endDate.value < startDate.value) endDate.value = '';
+    });
+
+    enquiryForm.addEventListener('submit', event => {
+      event.preventDefault();
+      formStatus.textContent = '';
+      if (!enquiryForm.reportValidity()) return;
+      if (!flexibleDates.checked && endDate.value < startDate.value) {
+        endDate.setCustomValidity('Departure must be on or after your arrival date.');
+        endDate.reportValidity();
+        endDate.setCustomValidity('');
+        return;
+      }
+
+      const data = new FormData(enquiryForm);
+      const interests = data.getAll('interests');
+      const lines = [
+        'Hello The Gathering! I would love a quotation for a Kenya trip.',
+        '',
+        `Name: ${data.get('name')}`,
+        `Email: ${data.get('email') || 'Not provided'}`,
+        `Travel dates: ${flexibleDates.checked ? 'Flexible / not decided yet' : `${new Date(`${startDate.value}T00:00:00`).toLocaleDateString()} to ${new Date(`${endDate.value}T00:00:00`).toLocaleDateString()}`}`,
+        `Group size: ${data.get('groupSize')}`,
+        `Accommodation preference: ${data.get('stayStyle')}`,
+        `Interests: ${interests.length ? interests.join(', ') : 'Open to suggestions'}`,
+        `Approximate budget per person: ${data.get('budget') || 'Not specified'}`,
+        `Additional notes: ${data.get('notes') || 'None'}`,
+        '',
+        'Please let me know what options you recommend. Thank you!'
+      ];
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(lines.join('\n'))}`;
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      formStatus.textContent = 'WhatsApp opened with your trip details as a draft. Review the message and tap Send to share it with our team.';
+    });
+  }
 
   // Keep the compact mobile menu available without changing desktop navigation behavior.
   const siteHeader = document.querySelector('.site-header');
